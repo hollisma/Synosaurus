@@ -1,8 +1,8 @@
 import React from 'react'
-import './tailwind.css'
+import InputBox from './InputBox'
 
 const App = () => {
-  return <div>Hello World</div>
+  return <InputBox />
 }
 
 export default App
