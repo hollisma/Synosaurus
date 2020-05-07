@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import Display from './Display'
 
 const InputBox = () => {
   const [orgText, setOrgText] = useState('')
   const [curText, setCurText] = useState('')
   const inputBox = useRef(null)
+  useEffect(() => inputBox.current.focus())
 
   const handleText = event => {
     if (orgText === '') setOrgText(event.target.value)
@@ -13,6 +15,7 @@ const InputBox = () => {
   const handleReset = () => {
     setOrgText('')
     setCurText('')
+    inputBox.current.focus()
   }
 
   const handleUpdate = () => {
@@ -24,8 +27,7 @@ const InputBox = () => {
     <div>
       <h1>InputBox is here</h1>
       <input type='text' ref={inputBox} value={curText} onChange={handleText} />
-      <p>Text is: {curText}</p>
-      <p>Original text is: {orgText}</p>
+      <Display curText={curText} orgText={orgText} />
       <button onClick={handleReset}>Reset all</button>
       <button onClick={handleUpdate}>Update original text</button>
     </div>
