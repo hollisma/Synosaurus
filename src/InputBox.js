@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Display from './Display'
+import ControlPanel from './ControlPanel'
 
 const InputBox = () => {
   const [orgText, setOrgText] = useState('')
@@ -28,8 +29,7 @@ const InputBox = () => {
       <h1>InputBox is here</h1>
       <input type='text' ref={inputBox} value={curText} onChange={handleText} />
       <Display curText={curText} orgText={orgText} />
-      <button onClick={handleReset}>Reset all</button>
-      <button onClick={handleUpdate}>Update original text</button>
+      <ControlPanel handleReset={handleReset} handleUpdate={handleUpdate} />
     </div>
   )
 }
