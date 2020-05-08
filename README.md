@@ -9,3 +9,4 @@
 * Styling
 
 * Additional features like downloading as txt, copying to pastebin, sharing, etc
+* Can also do some NLP and do sentiment analysis, analyze dialog to see which character says what
