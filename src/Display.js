@@ -29,11 +29,16 @@ const Display = ({ curText, orgText }) => {
   }
 
   // Display blocks
+  let handleKeyword = word => {
+    // Should display popup with list of synonyms
+    // Then allow user to pick one that then replaces the word
+    console.log(word, dict[word])
+  }
   let regWord = word => <span class='m-3'>{word}</span>
   let keyword = word => (
-    <span class='m-3'>
+    <button class='m-3' onClick={() => handleKeyword(word)}>
       <b>{word}</b>
-    </span>
+    </button>
   )
 
   // Convert dict into blocks
