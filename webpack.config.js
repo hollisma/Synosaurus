@@ -15,7 +15,7 @@ module.exports = {
   },
   mode: 'development',
   node: {
-    fs: 'empty'
+    fs: 'empty',
   },
   plugins: [
     new HtmlWebpackPlugin({

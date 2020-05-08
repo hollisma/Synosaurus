@@ -10,6 +10,9 @@
     ]
   },
   "scripts": {
+    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
+    "prestart": "npm run build:tailwind",
+    "prebuild": "npm run build:tailwind",
     "start": "webpack-dev-server --mode development --output-public-path \"\"",
     "build": "webpack --mode production --output-public-path \"\"",
     "format": "prettier --write '*.js' 'src/**/*.js'"
