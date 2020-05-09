@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import keyword_extractor from 'keyword-extractor'
 import synonyms from 'synonyms'
 import natural from 'natural'
@@ -6,7 +6,9 @@ import natural from 'natural'
 import './tailwind.generated.css'
 
 const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange }) => {
-  // Get keywrods
+  let [showOrg, setShowOrg] = useState(false)
+
+  // Get keywords
   const extract_options = {
     language: 'english',
     remove_digits: true,
@@ -62,7 +64,8 @@ const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange })
 
   return (
     <div>
-      <p>Original text is: {orgText}</p>
+      <button class='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>Show original text</button>
+      {showOrg ? <p>Original text is: {orgText}</p> : null}
       <div>{blocks}</div>
       <div>{curWord.word}: {options}</div>
     </div>
