@@ -9,8 +9,8 @@ const InputBox = () => {
   const [orgText, setOrgText] = useState('')
   const [curText, setCurText] = useState('')
   const [curWord, setCurWord] = useState({
-    index: null, 
-    word: ''
+    index: null,
+    word: '',
   })
 
   const inputBox = useRef(null)
@@ -23,8 +23,8 @@ const InputBox = () => {
 
   const handleCurWord = (word, i) => {
     setCurWord({
-      index: i, 
-      word
+      index: i,
+      word,
     })
   }
 
@@ -33,8 +33,8 @@ const InputBox = () => {
     curTextArr[i] = word
     setCurText(curTextArr.join(' '))
     setCurWord({
-      index: i, 
-      word
+      index: i,
+      word,
     })
   }
 
@@ -55,7 +55,13 @@ const InputBox = () => {
     <div>
       <h1>InputBox is here</h1>
       <TextArea text={curText} handleText={handleText} inputBox={inputBox} />
-      <Display curText={curText} orgText={orgText} curWord={curWord} handleCurWord={handleCurWord} handleTextChange={handleTextChange} />
+      <Display
+        curText={curText}
+        orgText={orgText}
+        curWord={curWord}
+        handleCurWord={handleCurWord}
+        handleTextChange={handleTextChange}
+      />
       <ControlPanel handleReset={handleReset} handleUpdate={handleUpdate} />
     </div>
   )

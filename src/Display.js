@@ -5,7 +5,13 @@ import natural from 'natural'
 
 import './tailwind.generated.css'
 
-const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange }) => {
+const Display = ({
+  curText,
+  orgText,
+  curWord,
+  handleCurWord,
+  handleTextChange,
+}) => {
   let [showOrg, setShowOrg] = useState(false)
 
   // Get keywords
@@ -31,7 +37,11 @@ const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange })
   }
 
   // Display blocks
-  let regWord = (word, i) => <span key={i} class='m-1'>{word}</span>
+  let regWord = (word, i) => (
+    <span key={i} class='m-1'>
+      {word}
+    </span>
+  )
   let keyword = (word, i) => (
     <button key={i} class='m-1' onClick={() => handleCurWord(word, i)}>
       <b>{word}</b>
@@ -54,7 +64,11 @@ const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange })
   let syns = dict[curWord.word] || []
   let options = []
   let option = word => (
-    <button key={word} class='m-3' onClick={() => handleTextChange(word, curWord.index)}>
+    <button
+      key={word}
+      class='m-3'
+      onClick={() => handleTextChange(word, curWord.index)}
+    >
       {word}
     </button>
   )
@@ -64,10 +78,18 @@ const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange })
 
   return (
     <div>
-      <button class='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>Show original text</button>
+      <button class='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>
+        Show original text
+      </button>
       {showOrg ? <p>Original text is: {orgText}</p> : null}
       <div>{blocks}</div>
-      <div>{curWord.word}: {options}</div>
+      {curWord.word ? (
+        <div>
+          {curWord.word}: {options}
+        </div>
+      ) : (
+        <div>{null}</div>
+      )}
     </div>
   )
 }
