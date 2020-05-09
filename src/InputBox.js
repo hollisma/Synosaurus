@@ -22,10 +22,17 @@ const InputBox = () => {
   }
 
   const handleCurWord = (word, i) => {
-    setCurWord({
-      index: i,
-      word,
-    })
+    if (curWord.word === word) {
+      setCurWord({
+        index: null, 
+        word: ''
+      })
+    } else {
+      setCurWord({
+        index: i,
+        word,
+      })
+    }
   }
 
   const handleTextChange = (word, i) => {
@@ -46,10 +53,8 @@ const InputBox = () => {
 
   const handleUpdate = () => {
     setOrgText(curText)
-    inputBox.current.focus()
+    // inputBox.current.focus()
   }
-
-  console.log(`curText: ${curText}, curWord: ${curWord.word}`)
 
   return (
     <div>

@@ -38,12 +38,12 @@ const Display = ({
 
   // Display blocks
   let regWord = (word, i) => (
-    <span key={i} class='m-1'>
+    <span key={i} className='m-1'>
       {word}
     </span>
   )
   let keyword = (word, i) => (
-    <button key={i} class='m-1' onClick={() => handleCurWord(word, i)}>
+    <button key={i} className='m-1' onClick={() => handleCurWord(word, i)}>
       <b>{word}</b>
     </button>
   )
@@ -66,7 +66,7 @@ const Display = ({
   let option = word => (
     <button
       key={word}
-      class='m-3'
+      className='m-3'
       onClick={() => handleTextChange(word, curWord.index)}
     >
       {word}
@@ -78,7 +78,7 @@ const Display = ({
 
   return (
     <div>
-      <button class='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>
+      <button className='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>
         Show original text
       </button>
       {showOrg ? <p>Original text is: {orgText}</p> : null}
