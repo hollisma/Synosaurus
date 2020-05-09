@@ -1,7 +1,7 @@
 @tailwind base;
 
-html {
-  @apply flex items-center justify-center
+body {
+  @apply w-screen h-screen flex items-center justify-center
 }
 
 @tailwind components;

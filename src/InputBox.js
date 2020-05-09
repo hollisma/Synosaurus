@@ -1,18 +1,41 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Display from './Display'
 import ControlPanel from './ControlPanel'
+import TextArea from './TextArea'
 
 import './tailwind.generated.css'
 
 const InputBox = () => {
   const [orgText, setOrgText] = useState('')
   const [curText, setCurText] = useState('')
+  const [curWord, setCurWord] = useState({
+    index: null, 
+    word: ''
+  })
+
   const inputBox = useRef(null)
   useEffect(() => inputBox.current.focus())
 
   const handleText = event => {
     if (orgText === '') setOrgText(event.target.value)
     setCurText(event.target.value)
+  }
+
+  const handleCurWord = (word, i) => {
+    setCurWord({
+      index: i, 
+      word
+    })
+  }
+
+  const handleTextChange = (word, i) => {
+    let curTextArr = curText.split(' ')
+    curTextArr[i] = word
+    setCurText(curTextArr.join(' '))
+    setCurWord({
+      index: i, 
+      word
+    })
   }
 
   const handleReset = () => {
@@ -26,17 +49,13 @@ const InputBox = () => {
     inputBox.current.focus()
   }
 
+  console.log(`curText: ${curText}, curWord: ${curWord.word}`)
+
   return (
     <div>
       <h1>InputBox is here</h1>
-      <input
-        class='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-2/3 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500'
-        type='text'
-        ref={inputBox}
-        value={curText}
-        onChange={handleText}
-      />
-      <Display curText={curText} orgText={orgText} />
+      <TextArea text={curText} handleText={handleText} inputBox={inputBox} />
+      <Display curText={curText} orgText={orgText} curWord={curWord} handleCurWord={handleCurWord} handleTextChange={handleTextChange} />
       <ControlPanel handleReset={handleReset} handleUpdate={handleUpdate} />
     </div>
   )

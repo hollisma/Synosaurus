@@ -5,7 +5,7 @@ import natural from 'natural'
 
 import './tailwind.generated.css'
 
-const Display = ({ curText, orgText }) => {
+const Display = ({ curText, orgText, curWord, handleCurWord, handleTextChange }) => {
   // Get keywrods
   const extract_options = {
     language: 'english',
@@ -29,14 +29,9 @@ const Display = ({ curText, orgText }) => {
   }
 
   // Display blocks
-  let handleKeyword = word => {
-    // Should display popup with list of synonyms
-    // Then allow user to pick one that then replaces the word
-    console.log(word, dict[word])
-  }
-  let regWord = word => <span class='m-3'>{word}</span>
-  let keyword = word => (
-    <button class='m-3' onClick={() => handleKeyword(word)}>
+  let regWord = (word, i) => <span key={i} class='m-1'>{word}</span>
+  let keyword = (word, i) => (
+    <button key={i} class='m-1' onClick={() => handleCurWord(word, i)}>
       <b>{word}</b>
     </button>
   )
@@ -44,19 +39,32 @@ const Display = ({ curText, orgText }) => {
   // Convert dict into blocks
   let curTextArr = curText.split(' ')
   let blocks = []
-  for (let word of curTextArr) {
+  for (let i = 0; i < curTextArr.length; i++) {
+    let word = curTextArr[i]
     if (Object.keys(dict).includes(word) && dict[word] !== undefined) {
-      blocks.push(keyword(word))
+      blocks.push(keyword(word, i))
     } else {
-      blocks.push(regWord(word))
+      blocks.push(regWord(word, i))
     }
+  }
+
+  // Convert synonyms into options
+  let syns = dict[curWord.word] || []
+  let options = []
+  let option = word => (
+    <button key={word} class='m-3' onClick={() => handleTextChange(word, curWord.index)}>
+      {word}
+    </button>
+  )
+  for (let word of syns) {
+    options.push(option(word))
   }
 
   return (
     <div>
-      <p>Text is: {curText}</p>
       <p>Original text is: {orgText}</p>
       <div>{blocks}</div>
+      <div>{curWord.word}: {options}</div>
     </div>
   )
 }
