@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import keyword_extractor from 'keyword-extractor'
-import synonyms from 'synonyms'
-import natural from 'natural'
+import thesaurus from 'thesaurus'
 
 import './tailwind.generated.css'
 
@@ -23,18 +22,14 @@ const Display = ({
   }
   const keywords = keyword_extractor.extract(curText, extract_options)
 
-  // Get POS
-  const lexicon = new natural.Lexicon('EN', 'N')
-  const ruleSet = new natural.RuleSet('EN')
-  const tagger = new natural.BrillPOSTagger(lexicon, ruleSet)
-  const taggedWords = tagger.tag(keywords).taggedWords
-
   // Get dictionary of token to synonyms
   let dict = {}
-  for (let word of taggedWords) {
-    const pos = 'N' === word.tag[0] ? 'n' : 'v'
-    dict[word.token] = synonyms(word.token, pos)
+  for (let i = 0; i < keywords.length; i++) {
+    let syns = thesaurus.find(keywords[i])
+    if (syns.length > 0) 
+      dict[keywords[i]] = thesaurus.find(keywords[i])
   }
+  console.log(dict)
 
   // Display blocks
   let regWord = (word, i) => (
