@@ -101,6 +101,7 @@ const InputBox = () => {
 
   return (
     <div>
+      <h1 className='text-4xl'>Synthesaurus</h1>
       <div className='w-full max-h-screen'>
         <TextArea text={curText} handleText={handleText} inputBox={inputBox} />
         <div className='flex flex-row'>

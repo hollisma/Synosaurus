@@ -20,7 +20,7 @@ const Synonyms = ({ curWord, dict, handleTextChange }) => {
   return (
     <div>
       {curWord.word ? (
-        <div className='overflow-auto' style={{ maxHeight: '62vh' }}>
+        <div className='overflow-auto' style={{ maxHeight: '57vh' }}>
           {curWord.word}: {options}
         </div>
       ) : (

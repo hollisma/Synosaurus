@@ -34,7 +34,7 @@ const Display = ({ curText, orgText, dict, handleCurWord }) => {
   }
 
   return (
-    <div className='overflow-auto' style={{ maxHeight: '60vh' }}>
+    <div className='overflow-auto' style={{ maxHeight: '55vh' }}>
       <button
         className='btn btn-blue mb-4'
         onClick={() => setShowOrg(!showOrg)}
