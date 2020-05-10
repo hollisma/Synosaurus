@@ -1,35 +1,14 @@
 import React, { useState } from 'react'
-import keyword_extractor from 'keyword-extractor'
-import thesaurus from 'thesaurus'
 
 import './tailwind.generated.css'
 
 const Display = ({
   curText,
   orgText,
-  curWord,
+  dict,
   handleCurWord,
-  handleTextChange,
 }) => {
-  let [showOrg, setShowOrg] = useState(false)
-
-  // Get keywords
-  const extract_options = {
-    language: 'english',
-    remove_digits: true,
-    return_changed_case: false,
-    remove_duplicates: true,
-  }
-  const keywords = keyword_extractor.extract(curText, extract_options)
-
-  // Get dictionary of token to synonyms
-  let dict = {}
-  for (let i = 0; i < keywords.length; i++) {
-    let syns = thesaurus.find(keywords[i])
-    if (syns.length > 0) 
-      dict[keywords[i]] = thesaurus.find(keywords[i])
-  }
-  console.log(dict)
+  let [showOrg, setShowOrg] = useState(false)  
 
   // Display blocks
   let regWord = (word, i) => (
@@ -55,22 +34,6 @@ const Display = ({
     }
   }
 
-  // Convert synonyms into options
-  let syns = dict[curWord.word] || []
-  let options = []
-  let option = word => (
-    <button
-      key={word}
-      className='m-3'
-      onClick={() => handleTextChange(word, curWord.index)}
-    >
-      {word}
-    </button>
-  )
-  for (let word of syns) {
-    options.push(option(word))
-  }
-
   return (
     <div>
       <button className='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>
@@ -78,13 +41,6 @@ const Display = ({
       </button>
       {showOrg ? <p>Original text is: {orgText}</p> : null}
       <div>{blocks}</div>
-      {curWord.word ? (
-        <div>
-          {curWord.word}: {options}
-        </div>
-      ) : (
-        <div>{null}</div>
-      )}
     </div>
   )
 }
