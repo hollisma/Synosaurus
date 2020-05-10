@@ -83,6 +83,22 @@ const InputBox = () => {
     // inputBox.current.focus()
   }
 
+  const handleDownload = () => {
+    var element = document.createElement('a')
+    element.setAttribute(
+      'href',
+      'data:text/plain;charset=utf-8,' + encodeURIComponent(curText)
+    )
+    element.setAttribute('download', 'synthesaurus-text')
+
+    element.style.display = 'none'
+    document.body.appendChild(element)
+
+    element.click()
+
+    document.body.removeChild(element)
+  }
+
   return (
     <div>
       <div className='w-full max-h-screen'>
@@ -98,6 +114,7 @@ const InputBox = () => {
             <ControlPanel
               handleReset={handleReset}
               handleUpdate={handleUpdate}
+              handleDownload={handleDownload}
             />
           </div>
           <div className='w-1/3 m-0'>
