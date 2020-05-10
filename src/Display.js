@@ -2,22 +2,21 @@ import React, { useState } from 'react'
 
 import './tailwind.generated.css'
 
-const Display = ({
-  curText,
-  orgText,
-  dict,
-  handleCurWord,
-}) => {
-  let [showOrg, setShowOrg] = useState(false)  
+const Display = ({ curText, orgText, dict, handleCurWord }) => {
+  let [showOrg, setShowOrg] = useState(false)
 
   // Display blocks
   let regWord = (word, i) => (
-    <span key={i} className='m-1'>
+    <span key={i} className='m-1 inline-block'>
       {word}
     </span>
   )
   let keyword = (word, i) => (
-    <button key={i} className='m-1' onClick={() => handleCurWord(word, i)}>
+    <button
+      key={i}
+      className='m-1 inline-block'
+      onClick={() => handleCurWord(word, i)}
+    >
       <b>{word}</b>
     </button>
   )
@@ -35,11 +34,14 @@ const Display = ({
   }
 
   return (
-    <div>
-      <button className='btn btn-blue' onClick={() => setShowOrg(!showOrg)}>
+    <div className='overflow-auto' style={{ maxHeight: '60vh' }}>
+      <button
+        className='btn btn-blue mb-4'
+        onClick={() => setShowOrg(!showOrg)}
+      >
         Show original text
       </button>
-      {showOrg ? <p>Original text is: {orgText}</p> : null}
+      {showOrg ? <div className='mb-4'>Original text is: {orgText}</div> : null}
       <div>{blocks}</div>
     </div>
   )

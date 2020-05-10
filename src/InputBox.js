@@ -23,7 +23,7 @@ const InputBox = () => {
   const handleText = event => {
     if (orgText === '') setOrgText(event.target.value)
     setCurText(event.target.value)
-    updateDict(event.target.value)  // feeding in event.target.value because curText doesn't update in time
+    updateDict(event.target.value) // feeding in event.target.value because curText doesn't update in time
   }
 
   const updateDict = text => {
@@ -40,8 +40,7 @@ const InputBox = () => {
     let newDict = {}
     for (let i = 0; i < keywords.length; i++) {
       let syns = thesaurus.find(keywords[i])
-      if (syns.length > 0) 
-        newDict[keywords[i]] = thesaurus.find(keywords[i])
+      if (syns.length > 0) newDict[keywords[i]] = thesaurus.find(keywords[i])
     }
     setDict(newDict)
   }
@@ -49,8 +48,8 @@ const InputBox = () => {
   const handleCurWord = (word, i) => {
     if (curWord.word === word) {
       setCurWord({
-        index: null, 
-        word: ''
+        index: null,
+        word: '',
       })
     } else {
       setCurWord({
@@ -64,7 +63,7 @@ const InputBox = () => {
     let curTextArr = curText.split(' ')
     curTextArr[i] = word
     let newText = curTextArr.join(' ')
-    
+
     setCurText(newText)
     setCurWord({
       index: i,
@@ -86,18 +85,29 @@ const InputBox = () => {
 
   return (
     <div>
-      <div>
+      <div className='w-full max-h-screen'>
         <TextArea text={curText} handleText={handleText} inputBox={inputBox} />
-        <Display
-          curText={curText}
-          orgText={orgText}
-          dict={dict}
-          handleCurWord={handleCurWord}
-        />
-        <ControlPanel handleReset={handleReset} handleUpdate={handleUpdate} />
-      </div>
-      <div>
-        <Synonyms curWord={curWord} dict={dict} handleTextChange={handleTextChange} />
+        <div className='flex flex-row'>
+          <div className='w-2/3 my-4 mr-8' style={{ maxHeight: '75vh' }}>
+            <Display
+              curText={curText}
+              orgText={orgText}
+              dict={dict}
+              handleCurWord={handleCurWord}
+            />
+            <ControlPanel
+              handleReset={handleReset}
+              handleUpdate={handleUpdate}
+            />
+          </div>
+          <div className='w-1/3 m-0'>
+            <Synonyms
+              curWord={curWord}
+              dict={dict}
+              handleTextChange={handleTextChange}
+            />
+          </div>
+        </div>
       </div>
     </div>
   )

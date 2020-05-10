@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Synonyms = ({ curWord, dict, handleTextChange }) => {
-
   // Convert synonyms into options
   let syns = dict[curWord.word] || []
   let options = []
@@ -21,7 +20,7 @@ const Synonyms = ({ curWord, dict, handleTextChange }) => {
   return (
     <div>
       {curWord.word ? (
-        <div>
+        <div className='overflow-auto' style={{ maxHeight: '62vh' }}>
           {curWord.word}: {options}
         </div>
       ) : (

@@ -4,8 +4,11 @@ import './tailwind.generated.css'
 
 const ControlPanel = ({ handleReset, handleUpdate }) => {
   return (
-    <div>
-      <button className='btn btn-blue btn-blue:hover' onClick={handleReset}>
+    <div className='mt-4'>
+      <button
+        className='mr-4 btn btn-blue btn-blue:hover'
+        onClick={handleReset}
+      >
         Reset all
       </button>
       <button className='btn btn-blue btn-blue:hover' onClick={handleUpdate}>
