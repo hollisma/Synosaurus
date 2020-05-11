@@ -21,7 +21,7 @@ const Synonyms = ({ curWord, dict, handleTextChange }) => {
     <div>
       {curWord.word ? (
         <div className='overflow-auto' style={{ maxHeight: '57vh' }}>
-          {curWord.word}: {options}
+          <span className='text-xl'>{curWord.word}:</span> {options}
         </div>
       ) : (
         <div>{null}</div>

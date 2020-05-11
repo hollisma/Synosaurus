@@ -3,6 +3,9 @@
 body {
   @apply w-screen h-screen flex items-center justify-center
 }
+p {
+  @apply text-lg my-2
+}
 
 @tailwind components;
 

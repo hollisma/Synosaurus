@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import keyword_extractor from 'keyword-extractor'
 import thesaurus from 'thesaurus'
 import Display from './Display'
@@ -101,7 +102,16 @@ const InputBox = () => {
 
   return (
     <div>
-      <h1 className='text-4xl'>Synthesaurus</h1>
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-4xl'>Synthesaurus</h1>
+        <Link
+          to='/about'
+          className='btn btn-blue btn-hover relative'
+          style={{ height: '40px', top:'10px' }}
+        >
+          About
+        </Link>
+      </div>
       <div className='w-full max-h-screen'>
         <TextArea text={curText} handleText={handleText} inputBox={inputBox} />
         <div className='flex flex-row'>
