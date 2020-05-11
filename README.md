@@ -1,4 +1,4 @@
-![alt-text](https://github.com/hollisma/Synthesaurus/src/favicon.png "Synthesaurus")
+![alt-text](https://github.com/hollisma/Synthesaurus/blob/master/src/favicon.png "Synthesaurus")
 
 # How to Use
 Synthesaurus lets you upgrade your writing by synthesizing it with a thesaurus and creating more powerful words. To use it, enter some text in the text box and click on any of the bold words that you want to change. Find a synonym that better suits your text, then choose it to replace your original word.
