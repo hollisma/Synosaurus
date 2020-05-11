@@ -16,7 +16,8 @@ const About = () => {
       </div>
       <div className='w-full max-h-screen my-8'>
         <p>
-          Synthesaurus lets you upgrade your writing by synthesizing it with a{' '}
+          <span className='text-indigo-600'>Synthesaurus</span> lets you upgrade
+          your writing by synthesizing it with a{' '}
           <span className='text-indigo-600'>thesaurus</span> and creating more
           powerful words. To use it, enter some text in the text box and click
           on any of the bold words that you want to change. Find a synonym that
@@ -32,7 +33,9 @@ const About = () => {
           >
             here
           </a>
-          .
+          . Huge shoutout to{' '}
+          <span className='text-indigo-600'>Liora Selinger</span> for being such
+          an amazing preceptor!
         </p>
       </div>
     </div>

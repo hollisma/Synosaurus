@@ -4,7 +4,7 @@ body {
   @apply w-screen h-screen flex items-center justify-center
 }
 p {
-  @apply text-lg my-2
+  @apply text-xl my-4 leading-8
 }
 
 @tailwind components;
