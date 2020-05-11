@@ -13,5 +13,8 @@ When editting, there are some scripts that might be of use. Run 'npm run format'
 # Future
 Some things to add in the future include:
 * Better styling
-* Additional features like copying to pastebin, sharing, etc
-* Can also do some NLP and do sentiment analysis, analyze dialog to see which character says what
+* Highlighting words that differ from the original text
+* Option to revert back to original text
+* Additional post-synthesaurus features like copying to pastebin, sharing, etc
+* Randomizer that picks random synonyms for each word
+* Can use NLP and do sentiment analysis, analyze dialog to see which character says what, etc.
