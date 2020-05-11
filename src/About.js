@@ -9,14 +9,31 @@ const About = () => {
         <Link
           to='/'
           className='btn btn-blue btn-hover relative'
-          style={{ height: '40px', top:'10px' }}
+          style={{ height: '40px', top: '10px' }}
         >
           Check it out!
         </Link>
       </div>
-      <div className='w-full max-h-screen'>
-        <p>hello here's some terxt</p>
-        <p>hello here's some terxt hello here's some terxt hello here's some terxthello here's some terxthello here's some terxthello here's some terxthello here's some terxthello here's some terxthello here's some terxt</p>
+      <div className='w-full max-h-screen my-8'>
+        <p>
+          Synthesaurus lets you upgrade your writing by synthesizing it with a{' '}
+          <span className='text-indigo-600'>thesaurus</span> and creating more
+          powerful words. To use it, enter some text in the text box and click
+          on any of the bold words that you want to change. Find a synonym that
+          better suits your text, then choose it to replace your original word.{' '}
+        </p>
+        <p>
+          This app was created as a final project for{' '}
+          <span className='text-indigo-600'>ENG385: Children's Literature</span>{' '}
+          by Hollis Ma. The link to the Github repo is{' '}
+          <a
+            href='https://github.com/hollisma/Synthesaurus'
+            className='text-blue-600'
+          >
+            here
+          </a>
+          .
+        </p>
       </div>
     </div>
   )

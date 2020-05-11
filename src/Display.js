@@ -41,7 +41,11 @@ const Display = ({ curText, orgText, dict, handleCurWord }) => {
       >
         Show original text
       </button>
-      {showOrg ? <div className='mb-4'>Original text is: {orgText}</div> : null}
+      {showOrg ? (
+        <div className='mb-4'>
+          <span className='text-lg'>Original text:</span> {orgText}
+        </div>
+      ) : null}
       <div>{blocks}</div>
     </div>
   )

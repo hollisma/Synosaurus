@@ -107,7 +107,7 @@ const InputBox = () => {
         <Link
           to='/about'
           className='btn btn-blue btn-hover relative'
-          style={{ height: '40px', top:'10px' }}
+          style={{ height: '40px', top: '10px' }}
         >
           About
         </Link>
