@@ -33,6 +33,14 @@ const About = () => {
           >
             here
           </a>
+          . Here's an essay I wrote about the relationships between{' '}
+          <a
+            href="/Synthesaurus and Children's Literature.pdf"
+            className='text-blue-600'
+            download
+          >
+            Synthesaurus and Children's Literature
+          </a>
           . Huge shoutout to{' '}
           <span className='text-indigo-600'>Liora Selinger</span> for being such
           an amazing preceptor!
