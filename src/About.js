@@ -35,9 +35,10 @@ const About = () => {
           </a>
           . Here's an essay I wrote about the relationships between{' '}
           <a
-            href="/Synthesaurus and Children's Literature.pdf"
+            href='https://docs.google.com/document/d/1wMKzRsglFiq7EeNvuX-ByWVdRdigV-Mvuxc5rqPE8h8/edit?usp=sharing'
+            target='_blank'
+            rel='noopener noreferrer'
             className='text-blue-600'
-            download
           >
             Synthesaurus and Children's Literature
           </a>
