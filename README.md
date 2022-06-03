@@ -4,7 +4,7 @@
 Synthesaurus lets you upgrade your writing by synthesizing it with a thesaurus and creating more powerful words. To use it, enter some text in the text box and click on any of the bold words that you want to change. Find a synonym that better suits your text, then choose it to replace your original word.
 
 # How to Install
-This app is running at [synthesaurus.surge.sh], but if you want to run it locally, here's what to do: 
+This app is running at [synthesaurus.surge.sh](https://synthesaurus.surge.sh/ "Synthesaurus"), but if you want to run it locally, here's what to do: 
 
 First, clone the repo and run 'npm install' to install the dependencies. Then run 'npm run build' to create a dist folder. To run locally, run 'npm start'. To get it hosted with Surge, install surge and run 'surge', then authenticate yourself, choose the dist folder, then type in a url. 
 
